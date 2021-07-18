@@ -5,6 +5,7 @@ import (
 	"beego-admin/global"
 	"beego-admin/models"
 	"beego-admin/utils/page"
+	"fmt"
 	"github.com/beego/beego/v2/client/orm"
 	"net/url"
 )
@@ -26,7 +27,7 @@ func (*AdminFamilyService) GetAdminFamilyById(id int) *models.AdminFamily {
 }
 
 // GetPaginateData 通过分页获取adminFamily
-func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) ([]*models.AdminFamily, page.Pagination) {
+func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) ([]*models.AdminFamily, page.Pagination,map[int]int) {
 	//搜索、查询字段赋值
 	aus.SearchField = append(aus.SearchField, new(models.AdminFamily).SearchField()...)
 
@@ -34,9 +35,27 @@ func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) 
 	o := orm.NewOrm().QueryTable(new(models.AdminFamily))
 	_, err := aus.PaginateAndScopeWhere(o, listRows, params).All(&adminFamily)
 	if err != nil {
-		return nil, aus.Pagination
+		return nil, aus.Pagination,nil
 	}
-	return adminFamily, aus.Pagination
+
+	var ids []int
+	for _,v :=range adminFamily{
+		ids = append(ids, v.Id)
+	}
+
+	var totalArr = make(map[int]int,0 )
+	if len(ids) > 0 {
+		fmt.Println(ids)
+		var adminPeopleService = new(AdminPeopleService)
+		for _,id := range ids{
+			count := adminPeopleService.GetCount(id)
+			totalArr[id] = count
+		}
+	} else {
+		totalArr = nil
+	}
+
+	return adminFamily, aus.Pagination,totalArr
 }
 
 // Create 新增admin user用户
@@ -44,7 +63,7 @@ func (*AdminFamilyService) Create(form *formvalidate.AdminFamilyForm) int {
 
 	adminFamily := models.AdminFamily{
 		Name:    form.Name,
-		Number:  form.Number,
+		Number:  0,
 		Address: form.Address,
 		ZoneId:  form.ZoneId,
 		CreatedAt: global.GetNowTime(),
@@ -65,6 +84,16 @@ func (*AdminFamilyService) IsExistName(name string, id int) bool {
 	return orm.NewOrm().QueryTable(new(models.AdminFamily)).Filter("name", name).Exclude("id", id).Exist()
 }
 
+// GetUserLevel 获取所有用户等级
+func (*AdminFamilyService) GetAllFamily() []*models.AdminFamily {
+	var adminFamily []*models.AdminFamily
+	_, err := orm.NewOrm().QueryTable(new(models.AdminFamily)).All(&adminFamily)
+	if err == nil {
+		return adminFamily
+	}
+	return nil
+}
+
 // Update 更新用户信息
 func (*AdminFamilyService) Update(form *formvalidate.AdminFamilyForm) int {
 	o := orm.NewOrm()
@@ -72,7 +101,6 @@ func (*AdminFamilyService) Update(form *formvalidate.AdminFamilyForm) int {
 
 	if o.Read(&adminFamily) == nil {
 		adminFamily.Name = form.Name
-		adminFamily.Number = form.Number
 		adminFamily.ZoneId = form.ZoneId
 		adminFamily.Address = form.Address
 		adminFamily.UpdatedAt = global.GetNowTime()

@@ -71,8 +71,8 @@
                                        placeholder="选择/取消">
                             </td>
                             <td>{{$item.Id}}</td>
-                            <td>{{$item.Name}}</td>
-                            <td>{{$item.Number}}</td>
+                            <td><a href="/admin/people/index?_keywords={{$item.Id}}">{{$item.Name}}</a></td>
+                            <td>{{ map_get $.totalArr $item.Id }}</td>
                             <td>
                                 {{if gt $item.ZoneId  0}} 洛佐{{$item.ZoneId}}社 {{else}}未知 {{end}}
                             </td>

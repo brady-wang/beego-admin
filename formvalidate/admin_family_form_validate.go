@@ -6,7 +6,6 @@ import "github.com/gookit/validate"
 type AdminFamilyForm struct {
 	Id       int    `form:"id"`
 	Name     string `form:"name" validate:"required"`
-	Number   string `form:"number" `
 	ZoneId   int    `form:"zone_id" `
 	Address  string `form:"address" `
 	IsCreate int    `form:"_create"`

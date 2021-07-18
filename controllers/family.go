@@ -25,20 +25,21 @@ var zoneId5 = map[string]interface{}{"Id": 5, "Name": "洛佐5社"}
 func init()  {
 	zoneIdList = append(zoneIdList, zoneId1, zoneId2, zoneId3, zoneId4, zoneId5)
 }
-// Index 用户管理-首页
+// Index 家庭管理-首页
 func (auc *FamilyController) Index() {
 	var adminFamilyService services.AdminFamilyService
-	data, pagination := adminFamilyService.GetPaginateData(admin["per_page"].(int), gQueryParams)
+	data, pagination,totalArr:= adminFamilyService.GetPaginateData(admin["per_page"].(int), gQueryParams)
 	auc.Data["data"] = data
 	auc.Data["paginate"] = pagination
 
 	auc.Data["zoneIdList"] = zoneIdList
+	auc.Data["totalArr"] = totalArr
 
 	auc.Layout = "public/base.html"
 	auc.TplName = "family/index.html"
 }
 
-// Add 用户管理-添加界面
+// Add 家庭管理-添加界面
 func (auc *FamilyController) Add() {
 	auc.Data["zoneIdList"] = zoneIdList
 
@@ -46,7 +47,7 @@ func (auc *FamilyController) Add() {
 	auc.TplName = "family/add.html"
 }
 
-// Create 用户管理-添加界面
+// Create 家庭管理-添加界面
 func (auc *FamilyController) Create() {
 	var adminFamilyForm formvalidate.AdminFamilyForm
 	if err := auc.ParseForm(&adminFamilyForm); err != nil {
@@ -99,7 +100,7 @@ func (auc *FamilyController) Edit() {
 	auc.TplName = "family/edit.html"
 }
 
-// Update 系统管理-用户管理-修改
+// Update 系统管理-家庭管理-修改
 func (auc *FamilyController) Update() {
 	var adminFamilyForm formvalidate.AdminFamilyForm
 	if err := auc.ParseForm(&adminFamilyForm); err != nil {

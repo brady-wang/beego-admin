@@ -11,7 +11,7 @@
  Target Server Version : 50651
  File Encoding         : 65001
 
- Date: 18/07/2021 10:05:41
+ Date: 18/07/2021 13:38:13
 */
 
 SET NAMES utf8mb4;
@@ -39,23 +39,6 @@ CREATE TABLE `admin_family` (
 BEGIN;
 INSERT INTO `admin_family` VALUES (1, '张三家', 3, 0, 0, 0, '');
 INSERT INTO `admin_family` VALUES (2, '李四', 3, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (3, '王五', 1, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (4, '张三', 3, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (5, '张三了', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (6, '2342', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (7, '342342', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (8, '2323423', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (9, '234234234', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (10, '43353453', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (11, '热 234', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (12, '沃尔沃二', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (13, '去玩儿', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (14, '123123', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (15, '434234', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (16, '34234', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (17, '234234', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (18, '2222', 0, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (22, '324234', 234234, 0, 1626573201, 1, '24234水电费水电费水电费啦胜利大街收到了就是点击发送了地方就是懒得发');
 COMMIT;
 
 -- ----------------------------
@@ -72,7 +55,7 @@ CREATE TABLE `admin_log` (
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '操作时间',
   `update_time` int(10) NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1046 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志';
+) ENGINE=InnoDB AUTO_INCREMENT=1055 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志';
 
 -- ----------------------------
 -- Records of admin_log
@@ -1123,6 +1106,15 @@ INSERT INTO `admin_log` VALUES (1042, 1, '登录', 'admin/auth/login', 'POST', '
 INSERT INTO `admin_log` VALUES (1043, 1, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626547200, 1626547200);
 INSERT INTO `admin_log` VALUES (1044, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626569818, 1626569818);
 INSERT INTO `admin_log` VALUES (1045, 1, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626569863, 1626569863);
+INSERT INTO `admin_log` VALUES (1046, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626577441, 1626577441);
+INSERT INTO `admin_log` VALUES (1047, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626577707, 1626577707);
+INSERT INTO `admin_log` VALUES (1048, 1, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626581727, 1626581727);
+INSERT INTO `admin_log` VALUES (1049, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626582261, 1626582261);
+INSERT INTO `admin_log` VALUES (1050, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626582416, 1626582416);
+INSERT INTO `admin_log` VALUES (1051, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626582498, 1626582498);
+INSERT INTO `admin_log` VALUES (1052, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626583916, 1626583916);
+INSERT INTO `admin_log` VALUES (1053, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626583993, 1626583993);
+INSERT INTO `admin_log` VALUES (1054, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626584195, 1626584195);
 COMMIT;
 
 -- ----------------------------
@@ -1134,7 +1126,7 @@ CREATE TABLE `admin_log_data` (
   `admin_log_id` int(11) NOT NULL COMMENT '日志ID',
   `data` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '日志内容',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1036 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志数据';
+) ENGINE=InnoDB AUTO_INCREMENT=1045 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志数据';
 
 -- ----------------------------
 -- Records of admin_log_data
@@ -2175,6 +2167,15 @@ INSERT INTO `admin_log_data` VALUES (1032, 1042, 'PR1e6SKuzJT/pjc5GVGABgKITWhJZI
 INSERT INTO `admin_log_data` VALUES (1033, 1043, 'PR1e6SKuzJT/pjc5GVGABgKITWhJZIMMV5joToJL0FCMG1U+QdpbLkWDZZ5mkBL8jiGFPwrVMP4F2f30BnBn5SL9IvH0UVYsdkXqsWJ6g+PgeDX4WXC2pJDMqsRpy++aVClg4/h+a+sZP5reaNgXmAX5UF4LuNrqIbGPOZl1Tcs=');
 INSERT INTO `admin_log_data` VALUES (1034, 1044, 'EHVjhR5O5NtjZofjlpmCOpnK+/1FOs210eV7C9MECgee63zeW7gJrLLMtimcK+gX+HY68VPwEX/0ikuAav49Ud11G3bgzTXpZoTq9jIHN7YKxIu7TZfeOv5bEEXhWCGafb8X7YAxef+uI7Ywm1lK6Q==');
 INSERT INTO `admin_log_data` VALUES (1035, 1045, 'EHVjhR5O5NtjZofjlpmCOpnK+/1FOs210eV7C9MECgee63zeW7gJrLLMtimcK+gXfmeclUJdfWxgNT8l+ZWCJEmXNH4/ROtK6+zB3/fiQnNNeoPx0ymIE1Q9U2nR7BSOtIZ4zpVX/gO9W3732njpYJ2weAWBAep9SPPULueTqsk=');
+INSERT INTO `admin_log_data` VALUES (1036, 1046, 'spqV7VGORTocdWZXRIdeu70JZFzLiKsZYYArn9GkP//33aRm5P+iPjmRHOfZskoidQvTqFiYuvZl3yYNxV5aXBZMkSLCosrKq+NOoaRPr37+7Om0oePlZxILn2CJJSAC');
+INSERT INTO `admin_log_data` VALUES (1037, 1047, 'spqV7VGORTocdWZXRIdeu70JZFzLiKsZYYArn9GkP//33aRm5P+iPjmRHOfZskoidQvTqFiYuvZl3yYNxV5aXIzGYhQJMhJ4Q8tXlzuqvc499LReslK55aN82/Ua/bJT3yr0P+GY9v3kHhjvUTpHrw==');
+INSERT INTO `admin_log_data` VALUES (1038, 1048, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuEfhPSkmnBHhzWb7jiwHqr00kOfux431ABEyO2LLKyBAEBhELrz+Es0od1ZwHZMWrGtCwoc1Mc7OmeVxtolO0Vg==');
+INSERT INTO `admin_log_data` VALUES (1039, 1049, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
+INSERT INTO `admin_log_data` VALUES (1040, 1050, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
+INSERT INTO `admin_log_data` VALUES (1041, 1051, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
+INSERT INTO `admin_log_data` VALUES (1042, 1052, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
+INSERT INTO `admin_log_data` VALUES (1043, 1053, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
+INSERT INTO `admin_log_data` VALUES (1044, 1054, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwcFBHEPj3U3FgX4uJykhgUlb1QfiEm2Jvu6TMfafyTL+OuEc5Mq7TtEyzCKmYcbXfw==');
 COMMIT;
 
 -- ----------------------------
@@ -2267,7 +2268,7 @@ INSERT INTO `admin_menu` VALUES (85, 81, '删除家庭', 'admin/family/del', 'fa
 INSERT INTO `admin_menu` VALUES (86, 81, '添加家庭', 'admin/family/create', 'fa-plus', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (87, 81, '修改家庭', 'admin/family/update', 'fa-edit', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (88, 82, '添加人员界面', 'admin/people/add', 'fa-plus', 0, 1000, '不记录');
-INSERT INTO `admin_menu` VALUES (89, 82, '修改人员界面', 'admin/fampeopleily/edit', 'fa-edit', 0, 1000, '不记录');
+INSERT INTO `admin_menu` VALUES (89, 82, '修改人员界面', 'admin/people/edit', 'fa-edit', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (90, 82, '删除人员', 'admin/people/del', 'fa-close', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (91, 82, '添加人员', 'admin/people/create', 'fa-list', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (92, 82, '修改人员', 'admin/people/update', 'fa-edit', 0, 1000, '不记录');
@@ -2284,12 +2285,21 @@ CREATE TABLE `admin_people` (
   `mobile` varchar(18) NOT NULL DEFAULT '',
   `address` varchar(255) NOT NULL,
   `id_card` varchar(25) NOT NULL DEFAULT '',
-  `social_card` varchar(255) NOT NULL DEFAULT '',
+  `social_card` varchar(25) NOT NULL DEFAULT '',
   `created_at` int(11) NOT NULL DEFAULT '0',
   `updated_at` int(11) NOT NULL DEFAULT '0',
   `family_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of admin_people
+-- ----------------------------
+BEGIN;
+INSERT INTO `admin_people` VALUES (13, '22', '男', '123', '', '', '', 1626584917, 0, 1);
+INSERT INTO `admin_people` VALUES (14, '13', '男', '', '', '', '', 1626584924, 1626586641, 2);
+INSERT INTO `admin_people` VALUES (15, 'sdfsd', '男', '234234', '34234234', '234234', '2342342', 1626586535, 1626586635, 2);
+COMMIT;
 
 -- ----------------------------
 -- Table structure for admin_role
@@ -2334,7 +2344,7 @@ CREATE TABLE `admin_user` (
 -- Records of admin_user
 -- ----------------------------
 BEGIN;
-INSERT INTO `admin_user` VALUES (1, 'super_admin', 'JDJhJDEwJGdMTC80bkp1T0MzWjhXcFhwVUdCVC40bkliMGV1WW5oeW51bHJsUC5UMk1kZ2l0djRzSlUy', '超级管理员', '/static/uploads/attachment/aecb9fb7-871b-43fc-9414-a4265d0cb72d.png', '1', 1, 0);
+INSERT INTO `admin_user` VALUES (1, 'super_admin', 'JDJhJDEwJGdMTC80bkp1T0MzWjhXcFhwVUdCVC40bkliMGV1WW5oeW51bHJsUC5UMk1kZ2l0djRzSlUy', '超级管理员', '/static/uploads/attachment/f4c948e1-6c12-4717-b233-018ff17450f3.jpg', '1', 1, 0);
 INSERT INTO `admin_user` VALUES (4, 'admin', 'JDJhJDEwJDBValVyLy9qTFVUTnpqenQ1Vml1Zy5KOFFHc21qdWFBR1p1WXpmbFA4cXV3S3EzOGw5b0ZP', 'admin', '/static/admin/images/avatar.png', '1', 1, 0);
 COMMIT;
 
@@ -2359,7 +2369,7 @@ CREATE TABLE `attachment` (
   `update_time` int(10) NOT NULL DEFAULT '0' COMMENT '更新时间',
   `delete_time` int(10) NOT NULL DEFAULT '0' COMMENT '删除时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=70 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='附件表';
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='附件表';
 
 -- ----------------------------
 -- Records of attachment
@@ -2434,6 +2444,7 @@ INSERT INTO `attachment` VALUES (66, 1, 0, 'touxiang.jpg', 'c9d647d6-b0c7-4dc7-9
 INSERT INTO `attachment` VALUES (67, 1, 0, '56644a9f283c058cd371316e186ef48a.png', 'd79d90b9-9ddc-4109-921d-8e493ca03d61', 'D:/Go/src/beego-admin/static/uploads/attachment/d79d90b9-9ddc-4109-921d-8e493ca03d61.png', '/static/uploads/attachment/d79d90b9-9ddc-4109-921d-8e493ca03d61.png', 'png', 'image/png', 1933, '81f197338df3a7c83d2e43f230cf62b7', '43c46c62d03f563418fd1988d8693fd47df8b4fe', 1604306078, 1604306078, 0);
 INSERT INTO `attachment` VALUES (68, 1, 0, 'touxiang.jpg', 'aeed3011-8626-4c36-b232-0390edfa77a5', 'D:/Go/src/beego-admin/static/uploads/attachment/aeed3011-8626-4c36-b232-0390edfa77a5.jpg', '/static/uploads/attachment/aeed3011-8626-4c36-b232-0390edfa77a5.jpg', 'jpg', 'image/jpeg', 12700, '3834aaf387f027929b4c8aa9e94464de', '9a835d38c9cbd2733945b801bd72c60cbef451c5', 1604307558, 1604307558, 0);
 INSERT INTO `attachment` VALUES (69, 1, 0, 'touxiang.jpg', '05bdd082-3858-437e-a439-43c9a3c45280', 'D:/Go/src/beego-admin/static/uploads/attachment/05bdd082-3858-437e-a439-43c9a3c45280.jpg', '/static/uploads/attachment/05bdd082-3858-437e-a439-43c9a3c45280.jpg', 'jpg', 'image/jpeg', 12700, '4582abadaf3151a77ca4c2b064d57bdc', '1ef9634f6b9c55b0a694f1a0a2995f79ddff95f7', 1604307570, 1604307570, 0);
+INSERT INTO `attachment` VALUES (70, 1, 0, '6F27F2FD9146A358039F1C17B790F2AD.jpg', 'f4c948e1-6c12-4717-b233-018ff17450f3', '/Users/mac/www/go/admin/static/uploads/attachment/f4c948e1-6c12-4717-b233-018ff17450f3.jpg', '/static/uploads/attachment/f4c948e1-6c12-4717-b233-018ff17450f3.jpg', 'jpg', 'image/jpeg', 13613, '1745c365c3ef208fea8939a30e0161f5', '4db7a7e7475e956d6cd8ef2fa7d24801e684cd75', 1626577205, 1626577205, 0);
 COMMIT;
 
 -- ----------------------------

@@ -144,20 +144,30 @@ func init() {
 		////家庭管理-修改
 		web.NSRouter("/family/update", &controllers.FamilyController{}, "post:Update"),
 		////家庭管理-删除
-		web.NSRouter("/family/del", &controllers.FamilyController{}, "post:Del"),
+		web.NSRouter("/family/del",    &controllers.FamilyController{}, "post:Del"),
 
 
 		// 人员管理
-		//web.NSRouter("/people/index", &controllers.FamilyController{}, "get:Index"),
+		web.NSRouter("/people/index",  &controllers.PeopleController{}, "get:Index"),
+		//人员管理-添加界面
+		web.NSRouter("/people/add",    &controllers.PeopleController{}, "get:Add"),
+		//人员管理-添加
+		web.NSRouter("/people/create", &controllers.PeopleController{}, "post:Create"),
+		//人员管理-修改界面
+		web.NSRouter("/people/edit",   &controllers.PeopleController{}, "get:Edit"),
+		//人员管理-修改
+		web.NSRouter("/people/update", &controllers.PeopleController{}, "post:Update"),
+		//人员管理-删除
+		web.NSRouter("/people/del",    &controllers.PeopleController{}, "post:Del"),
 
 		//用户管理
-		web.NSRouter("/user/index", &controllers.UserController{}, "get:Index"),
+		web.NSRouter("/user/index",    &controllers.UserController{}, "get:Index"),
 		//用户管理-添加界面
-		web.NSRouter("/user/add", &controllers.UserController{}, "get:Add"),
+		web.NSRouter("/user/add",      &controllers.UserController{}, "get:Add"),
 		//用户管理-添加
-		web.NSRouter("/user/create", &controllers.UserController{}, "post:Create"),
+		web.NSRouter("/user/create",   &controllers.UserController{}, "post:Create"),
 		//用户管理-修改界面
-		web.NSRouter("/user/edit", &controllers.UserController{}, "get:Edit"),
+		web.NSRouter("/user/edit",     &controllers.UserController{}, "get:Edit"),
 		//用户管理-修改
 		web.NSRouter("/user/update", &controllers.UserController{}, "post:Update"),
 		//用户管理-启用
