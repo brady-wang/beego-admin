@@ -11,7 +11,7 @@
  Target Server Version : 50651
  File Encoding         : 65001
 
- Date: 18/07/2021 17:12:51
+ Date: 18/07/2021 19:18:59
 */
 
 SET NAMES utf8mb4;
@@ -31,14 +31,13 @@ CREATE TABLE `admin_family` (
   `address` varchar(255) NOT NULL DEFAULT '' COMMENT '详细地址',
   PRIMARY KEY (`id`),
   KEY `idx_name` (`name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of admin_family
 -- ----------------------------
 BEGIN;
-INSERT INTO `admin_family` VALUES (1, '张三家', 3, 0, 0, 0, '');
-INSERT INTO `admin_family` VALUES (2, '李四', 3, 0, 0, 0, '');
+INSERT INTO `admin_family` VALUES (30, '张三', 0, 1626607116, 0, 2, '67 号');
 COMMIT;
 
 -- ----------------------------
@@ -55,7 +54,7 @@ CREATE TABLE `admin_log` (
   `create_time` int(10) NOT NULL DEFAULT '0' COMMENT '操作时间',
   `update_time` int(10) NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1055 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志';
+) ENGINE=InnoDB AUTO_INCREMENT=1071 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志';
 
 -- ----------------------------
 -- Records of admin_log
@@ -1115,6 +1114,22 @@ INSERT INTO `admin_log` VALUES (1051, 4, '登录', 'admin/auth/login', 'POST', '
 INSERT INTO `admin_log` VALUES (1052, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626583916, 1626583916);
 INSERT INTO `admin_log` VALUES (1053, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626583993, 1626583993);
 INSERT INTO `admin_log` VALUES (1054, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626584195, 1626584195);
+INSERT INTO `admin_log` VALUES (1055, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626602036, 1626602036);
+INSERT INTO `admin_log` VALUES (1056, 1, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626602135, 1626602135);
+INSERT INTO `admin_log` VALUES (1057, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626602765, 1626602765);
+INSERT INTO `admin_log` VALUES (1058, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626602804, 1626602804);
+INSERT INTO `admin_log` VALUES (1059, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626602959, 1626602959);
+INSERT INTO `admin_log` VALUES (1060, 1, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626603170, 1626603170);
+INSERT INTO `admin_log` VALUES (1061, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626603618, 1626603618);
+INSERT INTO `admin_log` VALUES (1062, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626603662, 1626603662);
+INSERT INTO `admin_log` VALUES (1063, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626603911, 1626603911);
+INSERT INTO `admin_log` VALUES (1064, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626604066, 1626604066);
+INSERT INTO `admin_log` VALUES (1065, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626604133, 1626604133);
+INSERT INTO `admin_log` VALUES (1066, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626604446, 1626604446);
+INSERT INTO `admin_log` VALUES (1067, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626604961, 1626604961);
+INSERT INTO `admin_log` VALUES (1068, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626605023, 1626605023);
+INSERT INTO `admin_log` VALUES (1069, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626605254, 1626605254);
+INSERT INTO `admin_log` VALUES (1070, 4, '登录', 'admin/auth/login', 'POST', '127.0.0.1', 1626605307, 1626605307);
 COMMIT;
 
 -- ----------------------------
@@ -1126,7 +1141,7 @@ CREATE TABLE `admin_log_data` (
   `admin_log_id` int(11) NOT NULL COMMENT '日志ID',
   `data` text COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '日志内容',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=1045 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志数据';
+) ENGINE=InnoDB AUTO_INCREMENT=1061 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台操作日志数据';
 
 -- ----------------------------
 -- Records of admin_log_data
@@ -2176,6 +2191,22 @@ INSERT INTO `admin_log_data` VALUES (1041, 1051, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYux
 INSERT INTO `admin_log_data` VALUES (1042, 1052, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
 INSERT INTO `admin_log_data` VALUES (1043, 1053, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwfY2bHcYpl85s6IHLS1k1EQm5ouHz8qvypCE7uqIx+rk');
 INSERT INTO `admin_log_data` VALUES (1044, 1054, 'JTtMNt9wlMthMf0u9O+tcMRt/XVYuxlI6jXMB59n7Mod9ksfMJ7qH45vZ83IJxYuJNLC10M5m6ygppLVYmLhwcFBHEPj3U3FgX4uJykhgUlb1QfiEm2Jvu6TMfafyTL+OuEc5Mq7TtEyzCKmYcbXfw==');
+INSERT INTO `admin_log_data` VALUES (1045, 1055, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1046, 1056, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorKvztP6WxRQChvk9ZxIJqF2WdEsZJzEGifPYxITlaXSSccX8Pq/ScftjVGemFqmDhqjjJbZCXmfsUsZ1UfmDRhw==');
+INSERT INTO `admin_log_data` VALUES (1047, 1057, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1048, 1058, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1049, 1059, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1050, 1060, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorKvztP6WxRQChvk9ZxIJqF2WdEsZJzEGifPYxITlaXSSccX8Pq/ScftjVGemFqmDhqjjJbZCXmfsUsZ1UfmDRhw==');
+INSERT INTO `admin_log_data` VALUES (1051, 1061, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1052, 1062, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1053, 1063, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1054, 1064, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1055, 1065, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1056, 1066, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50DO1UV+99sXbc7u850xT5abLAbYnOuF6ooomkeUwBp0YU2VGxEVjyWGeH2+vOZqjdw==');
+INSERT INTO `admin_log_data` VALUES (1057, 1067, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1058, 1068, 'jLW6jaUGIRup/6Jbcp8g9smY/Ex+mwrkoJBw6711O5UPC7m0ZMUvXN9KgJE+RVhkthi0BwjKGudgg+xRv65viCe0GuL8vw9Tb7E/yrQ+dmkZVdYXhRtvQoiMw2OFTfl3');
+INSERT INTO `admin_log_data` VALUES (1059, 1069, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
+INSERT INTO `admin_log_data` VALUES (1060, 1070, 'QuTxxbzWkJn8tBhQ7iV2WE312hEuXnLhFbPH2q8nHxLJasDrZ+i8aCPVyzO7ylorJLzI2BgbY0Ma9BGauuj50Fp5Klm+ImZsUBvQsfhCNUWjY7lFZUEAJUf708uL3n5q');
 COMMIT;
 
 -- ----------------------------
@@ -2193,7 +2224,7 @@ CREATE TABLE `admin_menu` (
   `log_method` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '不记录' COMMENT '记录日志方法',
   PRIMARY KEY (`id`) USING BTREE,
   KEY `index_url` (`url`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台菜单';
+) ENGINE=InnoDB AUTO_INCREMENT=95 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPACT COMMENT='后台菜单';
 
 -- ----------------------------
 -- Records of admin_menu
@@ -2272,6 +2303,8 @@ INSERT INTO `admin_menu` VALUES (89, 82, '修改人员界面', 'admin/people/edi
 INSERT INTO `admin_menu` VALUES (90, 82, '删除人员', 'admin/people/del', 'fa-close', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (91, 82, '添加人员', 'admin/people/create', 'fa-list', 0, 1000, '不记录');
 INSERT INTO `admin_menu` VALUES (92, 82, '修改人员', 'admin/people/update', 'fa-edit', 0, 1000, '不记录');
+INSERT INTO `admin_menu` VALUES (93, 81, '家庭导出', 'admin/family/export', 'fa-list', 0, 1000, '不记录');
+INSERT INTO `admin_menu` VALUES (94, 82, '人员导出', 'admin/people/export', 'fa-list', 0, 1000, '不记录');
 COMMIT;
 
 -- ----------------------------
@@ -2290,16 +2323,7 @@ CREATE TABLE `admin_people` (
   `updated_at` int(11) NOT NULL DEFAULT '0',
   `family_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
-
--- ----------------------------
--- Records of admin_people
--- ----------------------------
-BEGIN;
-INSERT INTO `admin_people` VALUES (13, '22', '男', '123', '', '', '', 1626584917, 0, 1);
-INSERT INTO `admin_people` VALUES (14, '13', '男', '', '', '', '', 1626584924, 1626586641, 2);
-INSERT INTO `admin_people` VALUES (15, 'sdfsd', '男', '234234', '34234234', '234234', '2342342', 1626586535, 1626586635, 2);
-COMMIT;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Table structure for admin_role
@@ -2318,7 +2342,7 @@ CREATE TABLE `admin_role` (
 -- Records of admin_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `admin_role` VALUES (1, '管理员', '后台管理员角色', '1,2,12,13,14,15,67,68,80,81,83,84,85,86,87,82,88,89,90,91,92', 1);
+INSERT INTO `admin_role` VALUES (1, '管理员', '后台管理员角色', '1,2,3,4,5,6,55,56,57,58,59,60,61,7,8,9,10,11,62,63,64,65,66,12,13,14,15,67,68,80,81,83,84,85,86,87,93,82,88,89,90,91,92,94', 1);
 INSERT INTO `admin_role` VALUES (2, '测试01', '测试01', '1,2,18,19,20,21,22,23,24,25,26,27,28,29,30,31', 1);
 INSERT INTO `admin_role` VALUES (6, '测试02', '测试02', '1,2,16,17,18,43,48', 1);
 COMMIT;

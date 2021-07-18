@@ -5,7 +5,6 @@ import (
 	"beego-admin/global"
 	"beego-admin/models"
 	"beego-admin/utils/page"
-	"fmt"
 	"github.com/beego/beego/v2/client/orm"
 	"net/url"
 )
@@ -27,15 +26,15 @@ func (*AdminFamilyService) GetAdminFamilyById(id int) *models.AdminFamily {
 }
 
 // GetPaginateData 通过分页获取adminFamily
-func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) ([]*models.AdminFamily, page.Pagination,map[int]int) {
+func (us *AdminFamilyService) GetPaginateData(listRows int, params url.Values) ([]*models.AdminFamily, page.Pagination,map[int]int) {
 	//搜索、查询字段赋值
-	aus.SearchField = append(aus.SearchField, new(models.AdminFamily).SearchField()...)
+	us.SearchField = append(us.SearchField, new(models.AdminFamily).SearchField()...)
 
 	var adminFamily []*models.AdminFamily
 	o := orm.NewOrm().QueryTable(new(models.AdminFamily))
-	_, err := aus.PaginateAndScopeWhere(o, listRows, params).All(&adminFamily)
+	_, err := us.PaginateAndScopeWhere(o, listRows, params).All(&adminFamily)
 	if err != nil {
-		return nil, aus.Pagination,nil
+		return nil, us.Pagination,nil
 	}
 
 	var ids []int
@@ -45,7 +44,6 @@ func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) 
 
 	var totalArr = make(map[int]int,0 )
 	if len(ids) > 0 {
-		fmt.Println(ids)
 		var adminPeopleService = new(AdminPeopleService)
 		for _,id := range ids{
 			count := adminPeopleService.GetCount(id)
@@ -55,7 +53,7 @@ func (aus *AdminFamilyService) GetPaginateData(listRows int, params url.Values) 
 		totalArr = nil
 	}
 
-	return adminFamily, aus.Pagination,totalArr
+	return adminFamily, us.Pagination,totalArr
 }
 
 // Create 新增admin user用户
@@ -120,4 +118,18 @@ func (*AdminFamilyService) Del(ids []int) int {
 		return int(count)
 	}
 	return 0
+}
+
+
+// GetExportData 获取导出数据
+func (us *AdminFamilyService) GetExportData(params url.Values) []*models.AdminFamily {
+	//搜索、查询字段赋值
+	us.SearchField = append(us.SearchField, new(models.AdminFamily).SearchField()...)
+	var adminFamily []*models.AdminFamily
+	o := orm.NewOrm().QueryTable(new(models.AdminFamily))
+	_, err := us.ScopeWhere(o, params).All(&adminFamily)
+	if err != nil {
+		return nil
+	}
+	return adminFamily
 }

@@ -145,6 +145,8 @@ func init() {
 		web.NSRouter("/family/update", &controllers.FamilyController{}, "post:Update"),
 		////家庭管理-删除
 		web.NSRouter("/family/del",    &controllers.FamilyController{}, "post:Del"),
+		// 家庭管理 导出
+		web.NSRouter("/family/export",    &controllers.FamilyController{}, "get:Export"),
 
 
 		// 人员管理
@@ -159,6 +161,8 @@ func init() {
 		web.NSRouter("/people/update", &controllers.PeopleController{}, "post:Update"),
 		//人员管理-删除
 		web.NSRouter("/people/del",    &controllers.PeopleController{}, "post:Del"),
+		// 人员管理 导出
+		web.NSRouter("/people/export", &controllers.PeopleController{}, "get:Export"),
 
 		//用户管理
 		web.NSRouter("/user/index",    &controllers.UserController{}, "get:Index"),

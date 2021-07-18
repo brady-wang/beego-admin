@@ -5,10 +5,13 @@ import (
 	"beego-admin/global"
 	"beego-admin/global/response"
 	"beego-admin/services"
+	"beego-admin/utils/exceloffice"
+	"beego-admin/utils/template"
 	"fmt"
 	"github.com/gookit/validate"
 	"strconv"
 	"strings"
+	"time"
 )
 
 // PeopleController struct
@@ -167,4 +170,45 @@ func (auc *PeopleController) Del() {
 	} else {
 		response.Error(auc.Ctx)
 	}
+}
+
+
+// Export 导出
+func (uc *PeopleController) Export() {
+	exportData := uc.GetString("export_data")
+	if exportData == "1" {
+		var adminPeopleService services.AdminPeopleService
+
+		data := adminPeopleService.GetExportData(gQueryParams)
+		header := []string{"ID", "姓名", "性别", "手机号", "地址", "身份证", "社保卡","家庭ID","创建时间","更新时间"}
+		body := [][]string{}
+		for _, item := range data {
+			record := []string{
+				strconv.Itoa(item.Id),
+				item.Name,
+			}
+
+			record = append(record, item.Sex)
+			record = append(record, item.Mobile)
+			record = append(record, item.Address)
+			record = append(record, item.IdCard)
+			record = append(record, item.SocialCard)
+			record = append(record, strconv.Itoa(item.FamilyId))
+			var createdAt string
+			var updatedAt string
+			if item.CreatedAt >0 {
+				createdAt = template.UnixTimeForFormat(item.CreatedAt)
+			}
+			if item.UpdatedAt >0 {
+				updatedAt = template.UnixTimeForFormat(item.UpdatedAt)
+			}
+			record = append(record, createdAt)
+			record = append(record, updatedAt)
+			body = append(body, record)
+		}
+		uc.Ctx.ResponseWriter.Header().Set("a", "b")
+		exceloffice.ExportData(header, body, "people-"+time.Now().Format("2006-01-02-15-04-05"), "", "", uc.Ctx.ResponseWriter)
+	}
+
+	response.Error(uc.Ctx)
 }

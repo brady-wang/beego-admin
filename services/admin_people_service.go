@@ -113,3 +113,16 @@ func (*AdminPeopleService) Del(ids []int) int {
 	}
 	return 0
 }
+
+// GetExportData 获取导出数据
+func (us *AdminPeopleService) GetExportData(params url.Values) []*models.AdminPeople {
+	//搜索、查询字段赋值
+	us.SearchField = append(us.SearchField, new(models.AdminPeople).SearchField()...)
+	var adminPeople []*models.AdminPeople
+	o := orm.NewOrm().QueryTable(new(models.AdminPeople))
+	_, err := us.ScopeWhere(o, params).All(&adminPeople)
+	if err != nil {
+		return nil
+	}
+	return adminPeople
+}
