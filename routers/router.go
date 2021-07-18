@@ -132,6 +132,24 @@ func init() {
 		//用户等级管理-导出
 		web.NSRouter("/user_level/export", &controllers.UserLevelController{}, "get:Export"),
 
+
+		// 家庭管理
+		web.NSRouter("/family/index", &controllers.FamilyController{}, "get:Index"),
+		//家庭管理-添加界面
+		web.NSRouter("/family/add", &controllers.FamilyController{}, "get:Add"),
+		////家庭管理-添加
+		web.NSRouter("/family/create", &controllers.FamilyController{}, "post:Create"),
+		////家庭管理-修改界面
+		web.NSRouter("/family/edit", &controllers.FamilyController{}, "get:Edit"),
+		////家庭管理-修改
+		web.NSRouter("/family/update", &controllers.FamilyController{}, "post:Update"),
+		////家庭管理-删除
+		web.NSRouter("/family/del", &controllers.FamilyController{}, "post:Del"),
+
+
+		// 人员管理
+		//web.NSRouter("/people/index", &controllers.FamilyController{}, "get:Index"),
+
 		//用户管理
 		web.NSRouter("/user/index", &controllers.UserController{}, "get:Index"),
 		//用户管理-添加界面

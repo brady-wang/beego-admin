@@ -1,6 +1,9 @@
 package global
 
-import "beego-admin/conf"
+import (
+	"beego-admin/conf"
+	"time"
+)
 
 // URL_CURRENT 不做任何操作
 const URL_CURRENT = "url://current"
@@ -30,3 +33,14 @@ var (
 	// BA_CONFIG conf.Server
 	BA_CONFIG conf.Server
 )
+
+func GetNowTime()  int{
+	return int(time.Now().Unix())
+}
+
+func GetFormatDate(timestamp int) string{
+	timeLayout := "2006-01-02 15:04:05"  //转化所需模板
+	//时间戳转化为日期
+	datetime := time.Unix(int64(timestamp), 0).Format(timeLayout)
+	return datetime
+}

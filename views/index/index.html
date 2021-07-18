@@ -133,25 +133,7 @@
             </div>
         </section>
 
-        <section class="col-lg-5 connectedSortable" id="composer_info">
-            <div class="box sortable-widget" id="widget2">
-                <div class="box-header with-border">
-                    <h3 class="box-title">依赖关系</h3>
-                </div>
-                <div class="box-body">
-                    <table class="table table-bordered table-striped">
-                        <tbody>
-                        {{range $index, $elem := .system_info.require_list}}
-                            <tr>
-                                <th>{{$elem.Name}}</th>
-                                <td>{{$elem.Version}}</td>
-                            </tr>
-                        {{end}}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+
     </div>
 </section>
 
