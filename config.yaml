@@ -1,9 +1,9 @@
 # beego-admin global configuration
 # redis configuration
-redis:
-  db: 0
-  addr: '127.0.0.1:6379'
-  password: '123456'
+#redis:
+#  db: 0
+#  addr: '127.0.0.1:6379'
+#  password: '123456'
 
 # mysql connect configuration
 mysql:
